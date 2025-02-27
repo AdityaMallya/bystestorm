@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <input type="text" id="accNo" placeholder="Enter Account Number" />
+      <button onclick="loginUser()">Login</button>
+      <button onclick="redirectToRegister()">Register</button>
+    </div>
+
+    <script>
+      function loginUser() {
+        let accNo = document.getElementById("accNo").value.trim();
+
+        // Check if user exists in localStorage
+        let userData = localStorage.getItem(accNo);
+        if (!userData) {
+          alert("Account not found! Please register.");
+          return;
+        }
+
+        // Save logged-in user info for use in other pages
+        localStorage.setItem("loggedInUser", accNo);
+
+        alert("Login Successful!");
+        window.location.href = "dashboard.html"; // Redirect to dashboard
+      }
+
+      function redirectToRegister() {
+        window.location.href = "register.html"; // Redirect to register page
+      }
+
+      function adminLogin() {
+        const username = document.getElementById("adminUsername").value;
+        const password = document.getElementById("adminPassword").value;
+        if (username === "supriya" && password === "123") {
+          window.location.href = "register.html";
+        } else {
+          alert("Invalid credentials");
+        }
+      }
+
+      function registerAccount() {
+        alert("Account Registered Successfully!");
+        window.location.href = "dashboard.html";
+      }
+
+      function navigate(page) {
+        window.location.href = page;
+      }
+    </script>
+  </body>
+</html>
