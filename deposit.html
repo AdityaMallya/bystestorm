@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deposit</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="deposit.css" />
   </head>
   <body>
     <div class="container">
@@ -16,37 +16,41 @@
 
     <script>
       function loadUserData() {
-          let accNo = localStorage.getItem("loggedInUser");
-          if (!accNo) {
-              alert("No user logged in!");
-              window.location.href = "login.html";
-              return;
-          }
+        let accNo = localStorage.getItem("loggedInUser");
+        if (!accNo) {
+          alert("No user logged in!");
+          window.location.href = "login.html";
+          return;
+        }
 
-          let userData = JSON.parse(localStorage.getItem(accNo)) || { balance: 0 };
-          document.getElementById("balance").innerText = `$${userData.balance}`;
+        let userData = JSON.parse(localStorage.getItem(accNo)) || {
+          balance: 0,
+        };
+        document.getElementById("balance").innerText = `$${userData.balance}`;
       }
 
       function deposit() {
-          let amount = parseFloat(document.getElementById("depositAmount").value);
-          let accNo = localStorage.getItem("loggedInUser");
+        let amount = parseFloat(document.getElementById("depositAmount").value);
+        let accNo = localStorage.getItem("loggedInUser");
 
-          if (!accNo) return;
+        if (!accNo) return;
 
-          let userData = JSON.parse(localStorage.getItem(accNo)) || { balance: 0 };
+        let userData = JSON.parse(localStorage.getItem(accNo)) || {
+          balance: 0,
+        };
 
-          if (!isNaN(amount) && amount > 0) {
-              userData.balance += amount;
-              localStorage.setItem(accNo, JSON.stringify(userData));
+        if (!isNaN(amount) && amount > 0) {
+          userData.balance += amount;
+          localStorage.setItem(accNo, JSON.stringify(userData));
 
-              // Update balance display
-              document.getElementById("balance").innerText = `$${userData.balance}`;
+          // Update balance display
+          document.getElementById("balance").innerText = `$${userData.balance}`;
 
-              alert("Deposit Successful!");
-              window.location.href = "dashboard.html";
-          } else {
-              alert("Please enter a valid amount!");
-          }
+          alert("Deposit Successful!");
+          window.location.href = "dashboard.html";
+        } else {
+          alert("Please enter a valid amount!");
+        }
       }
 
       window.onload = loadUserData;

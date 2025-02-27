@@ -3,12 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banking System</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>BYTE STORM BANK</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("home.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: #333;
+        text-align: center;
+      }
+
+      .navbar {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 0 0 15px 15px;
+      }
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .nav-links li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: background 0.3s;
+        border-radius: 10px;
+      }
+      .nav-links li a:hover {
+        background-color: #16325c;
+      }
+      .home-content {
+        margin: 50px auto;
+        max-width: 800px;
+        padding: 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+      .btn {
+        background-color: #2a5298;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 10px;
+        transition: background 0.3s;
+      }
+      .btn:hover {
+        background-color: #1e3c72;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
-      <div class="logo">Banking System</div>
+      <div class="logo"></div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="dashboard.html">Dashboard</a></li>
@@ -18,13 +76,12 @@
         <li><a href="register.html">Register</a></li>
       </ul>
     </nav>
-
     <section class="home-content">
-      <h1>Welcome to the Banking System</h1>
+      <h1>Welcome to the Bytestorm Bank</h1>
       <p>
         Manage your finances easily with our secure and user-friendly interface.
       </p>
-      <div class="home-buttons">
+      <div>
         <a href="login.html" class="btn">Login</a>
         <a href="register.html" class="btn">Register</a>
       </div>
